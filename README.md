@@ -1,6 +1,6 @@
 # Bancor Crowdsale Analysis
 
-(Yet another work in progress)
+Status: This is just a rough analysis and can be refined further to get more accurate numbers.
 
 Official site [https://bancor.network](https://bancor.network)
 

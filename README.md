@@ -16,6 +16,11 @@ From their source:
 
 At the current ETH/USD rate of 393.3820, this amounts to a hard cap of USD 393,382,000.
 
+![](images/BancorTokenAllocationAndUseOfProceeds-20170613191928.png)
+
+<br />
+
+<hr />
 
 # Wallet
 Wallet at [0x5894110995b8c8401bd38262ba0c8ee41d4e4658](https://etherscan.io/address/0x5894110995b8c8401bd38262ba0c8ee41d4e4658).
@@ -32,6 +37,10 @@ Next transaction seems to be a `contributeBTCs()` contribution:
 First block with public crowdsale contributions #[3861203](https://etherscan.io/block/3861203).
 
 Last block with public crowdsale contribution #[3861767](https://etherscan.io/block/3861767).
+
+<br />
+
+<hr />
 
 # Crowdsale Transactions
 

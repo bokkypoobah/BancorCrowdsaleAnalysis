@@ -54,6 +54,10 @@ Last block with public crowdsale contribution #[3861767](https://etherscan.io/bl
 * #[3861740](https://etherscan.io/block/3861740) Jun-12-2017 04:17:50 PM +UTC `submitTransaction(enableRealCap(...))` [0x52dffab9](https://etherscan.io/tx/0x52dffab952f9b69a2c7fdab6b9e52ace98ec44559d8239688a5e88578b5c5e15) - [source](https://www.reddit.com/r/ethereum/comments/6gyu6w/transaction_triggering_cap_of_bancor_sale_had_a/)
 * #[3861767](https://etherscan.io/block/3861767) Jun-12-2017 04:25:20 PM +UTC Last transaction
 
+The raw data from running [script/getBancorCrowdsaleData.sh](script/getBancorCrowdsaleData.sh) can be found in [data/data.tsv](data/data.tsv) and the Excel form in [data/data.xls](data/data.xls). Note that this data has slight inconsistencies and does not include the `contributeBtcs()` generated tokens.
+
+Also note that tokens of the same amount as returned to the contributing account were also generated for the account [0x5894110995b8c8401bd38262ba0c8ee41d4e4658](https://etherscan.io/token/Bancor?a=0x5894110995b8c8401bd38262ba0c8ee41d4e4658) and total 39,661,989.1803711283883108 Bancor - [50.0000%].
+
 <br />
 
 <hr />

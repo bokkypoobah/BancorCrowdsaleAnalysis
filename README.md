@@ -4,27 +4,50 @@
 
 Official site [https://bancor.network](https://bancor.network)
 
+Fundraiser page [https://bancor.network/fundraiser](https://bancor.network/fundraiser):
+
+* 39.6M BNT Fundraiser token allocation
+* 79.3M Total BNT Supply
+* 396,720M ETH Raised
+
+From their source:
+
+    uint256 public totalEtherCap = 1000000 ether;   // current ether contribution cap, initialized with a temp value as a safety mechanism until the real cap is revealed
+
+At the current ETH/USD rate of 393.3820, this amounts to a hard cap of USD 393,382,000.
+
+
 # Wallet
 Wallet at [0x5894110995b8c8401bd38262ba0c8ee41d4e4658](https://etherscan.io/address/0x5894110995b8c8401bd38262ba0c8ee41d4e4658).
 
-First 2 transactions not related to the public crowdsale:
+First 3 transactions not related to the public crowdsale:
 
 * [0x9ac3301f](https://etherscan.io/tx/0x9ac3301f6171358bb90791798b9623fdf7f8a3437c5557f2fbd0261bbd59e4d3) #[3851003](https://etherscan.io/block/3851003) 0.01
-* [0xf125676c](https://etherscan.io/tx/0xf125676c8aa70d8b15fe2011415286f91a89afdcc4c0956c012b81b5b16f4f1e) #[3851355](https://etherscan.io/block/3851355) 0.01
+* Jun-10-2017 04:58:43 PM +UTC `contributeBTCs()` to the crowdsale contract [0xf125676c](https://etherscan.io/tx/0xf125676c8aa70d8b15fe2011415286f91a89afdcc4c0956c012b81b5b16f4f1e) #[3851355](https://etherscan.io/block/3851355) 0.01
 
 Next transaction seems to be a `contributeBTCs()` contribution:
 
-* [0x5a9c1306](https://etherscan.io/tx/0x5a9c1306ce7346e7540dae4dbf98a74ad5f7e1a65913112e4a35bc68a277a8f0) #[3860991](https://etherscan.io/block/3860991) 19,999.99
+* Jun-10-2017 04:58:43 PM +UTC [0x5a9c1306](https://etherscan.io/tx/0x5a9c1306ce7346e7540dae4dbf98a74ad5f7e1a65913112e4a35bc68a277a8f0) #[3860991](https://etherscan.io/block/3860991) 19,999.99
 
 First block with public crowdsale contributions #[3861203](https://etherscan.io/block/3861203).
 
 Last block with public crowdsale contribution #[3861767](https://etherscan.io/block/3861767).
 
+# Crowdsale Transactions
 
+* Jun-10-2017 04:20:11 PM +UTC Contract creation [0xfdb8f191](https://etherscan.io/tx/0xfdb8f1915348a3fed791431c4e91d22932166cb1a973b4507eb458c0081bcbbb) #[3851207](https://etherscan.io/block/3851207)
+* Jun-10-2017 04:42:52 PM +UTC `acceptTokenOwnership()` [0x11f905a9](https://etherscan.io/tx/0x11f905a9fbb049d91d8b4f6990633867a1f80b03eaee74c7613397453e91dba4) #[3851291](https://etherscan.io/block/3851291)
+* Jun-10-2017 04:58:43 PM +UTC `contributeBTCs()` [0xf125676c](https://etherscan.io/tx/0xf125676c8aa70d8b15fe2011415286f91a89afdcc4c0956c012b81b5b16f4f1e) #[3851355](https://etherscan.io/block/3851355)
+* Jun-10-2017 05:24:08 PM +UTC `issueTokens(...)` [0xf68e53d4](https://etherscan.io/tx/0xf68e53d4940740eacc8428670d1477295ffb4a02137d4b4a12d89850fe20c012) #[3851433](https://etherscan.io/block/3851433)
+* Jun-10-2017 05:32:18 PM +UTC `transferOwnership(...)` [0x62b034af](https://etherscan.io/tx/0x62b034afafab596bf4331a0a6c4eaea2dbf02313bfb35e3edb4051049254f66b) #[3851463](https://etherscan.io/block/3851463)
+* Jun-12-2017 12:59:04 PM +UTC `contributeBTCs()` [0x5a9c1306](https://etherscan.io/tx/0x5a9c1306ce7346e7540dae4dbf98a74ad5f7e1a65913112e4a35bc68a277a8f0) #[3860991](https://etherscan.io/block/3860991)
 
 # Crowdsale Contract
 
+* 100 tokens to 1 ETH
+
 From [0xbbc79794599b19274850492394004087cbf89710](https://etherscan.io/address/0xbbc79794599b19274850492394004087cbf89710#code):
+
 ```javascript
 pragma solidity ^0.4.11;
 

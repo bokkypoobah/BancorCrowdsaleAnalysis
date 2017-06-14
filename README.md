@@ -1,28 +1,62 @@
 # Bancor Crowdsale Analysis
 
-Status: This is just a rough analysis and can be refined further to get more accurate numbers.
+[Bancor](https://bancor.network) had a [Crowdsale](https://bancor.network/fundraiser) where the public contributions started at Jun-12-2017 02:00:17 PM +UTC and ended at Jun-12-2017 04:25:20 PM +UTC. The amount raised was 396,619.8918 ETH (USD 157,176,893 at the current ETH/USD price of 396.2910).
 
-Official site [https://bancor.network](https://bancor.network)
-
-From their fundraiser page [https://bancor.network/fundraiser](https://bancor.network/fundraiser):
-
-* 39.6M BNT Fundraiser token allocation
-* 79.3M Total BNT Supply
-* 396,720M ETH Raised
+Statistics from their crowdsale page - 39.6M BNT Fundraiser token allocation; 79.3M Total BNT Supply; and 396,720M ETH Raised.
 
 ![](images/BancorTokenAllocationAndUseOfProceeds-20170613191928.png)
 
-From their source:
+The crowdsale contract had a hardcoded cap of 1,000,000 ETH, and Bancor announced before the crowdsale that they was a hidden cap that would be revealed one hour into the crowdsale.
 
-    uint256 public totalEtherCap = 1000000 ether;   // current ether contribution cap, initialized with a temp value as a safety mechanism until the real cap is revealed
+Bancor made the following announcements on Twitter:
 
-At the current ETH/USD rate of 393.3820, this amounts to a hard cap of USD 393,382,000.
+* 7:42 AM - 12 Jun 2017 [BNT fundraiser live, massive attacks on network. Reports of #ethereum transactions pending. All who try 2 get in will be accepted. Stay calm](https://twitter.com/BancorNetwork/status/874275828653314048)
+* 8:11 AM - 12 Jun 2017 [BNT allocation event MINIMUM TIME EXTENDED TO 3 HOURS due to massive malicious attacks on network & resulting pending transaction bottleneck](https://twitter.com/BancorNetwork/status/874283097143037954)
+* 9:15 AM - 12 Jun 2017 [Massive attacks are on our network, website and application. Not on Ethereum](https://twitter.com/BancorNetwork/status/874299034667814912)
+* 9:26 AM - 12 Jun 2017 [Clarification: The transaction triggering hidden cap is currently stuck together w/ other transaction due to massive attacks on our network](https://twitter.com/BancorNetwork/status/874301834109833217)
+
+The hidden cap was only revealed (and set, halting further contributions) 2 hours and 25 minutes into the crowdsale, after the amount raised of 396 KETH exceeded then un-revealed cap of 250 KETH.
+
+Regarding the "massive attacks on our network", inspection of some randomly picked blocks at the start [3861206](https://etherscan.io/txs?block=3861206), middle [3861509](https://etherscan.io/txs?block=3861509) and end [3861761](https://etherscan.io/txs?block=3861761) of the crowdsale shows that the transactions are mostly BancorCrowdsale's transactions with other regular transactions in between.
+
+Bancor used a multisig wallet to execute the `enableRealCap(...)` transaction, requiring 2 separate transactions [0x52dffab9](https://etherscan.io/tx/0x52dffab952f9b69a2c7fdab6b9e52ace98ec44559d8239688a5e88578b5c5e15) and [0x52dffab9](https://etherscan.io/tx/0x52dffab952f9b69a2c7fdab6b9e52ace98ec44559d8239688a5e88578b5c5e15) to set the 250 KETH cap. The first part was mined 2 hours and 17 minutes into the crowdsale, and the second part was mined 2 hours and 25 minutes into the crowdsale.
+
+Bancor had set a maximum gas price of 50 gwei (50000000000 wei) that crowdsale contributors could send their transaction with. Bancor executed both multisig transactions with a 100 gwei gas price, and these should have been executed in priority to the valid crowdsale contribution transactions.
+
+<br />
+
+Some other news/information on the Bancor crowdsale:
+
+* [Bancor Sets New Record with $153 Million ‘ICO’](https://www.cryptocoinsnews.com/bancor-sets-new-ico-record/)
+* [$150 Million: Tim Draper-Backed Bancor Completes Largest-Ever ICO](http://www.coindesk.com/150-million-tim-draper-backed-bancor-completes-largest-ever-ico/)
+* [Bancor Crowdsale Raises Over $140 Million in Less Than Three Hours](https://www.financemagnates.com/cryptocurrency/news/bancor-crowdsale-raises-140-million-less-three-hours/)
+
+<br />
+
+## What Could Have Been Done Better
+
+* Allow the setting of the cap using a single transaction instead of a 2 part multisig transaction. This transaction could be enabled to execute from another (few) permissioned account if necessary
+* Work out how to prioritise the hidden cap transaction over the high traffic crowdsale contributions
+* Expect a lot of traffic on your website
 
 <br />
 
 <hr />
 
-# Wallet
+# Details
+
+## The Hardcoded Cap
+
+From their source:
+
+    uint256 public totalEtherCap = 1000000 ether;   // current ether contribution cap, initialized with a temp value as a safety mechanism until the real cap is revealed
+
+(USD 396,291,000 at the current ETH/USD price of 396.2910)
+
+<br />
+
+## Wallet Transactions
+
 Wallet at [0x5894110995b8c8401bd38262ba0c8ee41d4e4658](https://etherscan.io/address/0x5894110995b8c8401bd38262ba0c8ee41d4e4658).
 
 First 3 transactions not related to the public crowdsale:
@@ -40,9 +74,7 @@ Last block with public crowdsale contribution #[3861767](https://etherscan.io/bl
 
 <br />
 
-<hr />
-
-# Crowdsale Transactions
+## Crowdsale Transactions
 
 * #[3851207](https://etherscan.io/block/3851207) Jun-10-2017 04:20:11 PM +UTC Contract creation [0xfdb8f191](https://etherscan.io/tx/0xfdb8f1915348a3fed791431c4e91d22932166cb1a973b4507eb458c0081bcbbb)
 * #[3851291](https://etherscan.io/block/3851291) Jun-10-2017 04:42:52 PM +UTC `acceptTokenOwnership()` [0x11f905a9](https://etherscan.io/tx/0x11f905a9fbb049d91d8b4f6990633867a1f80b03eaee74c7613397453e91dba4)
@@ -60,21 +92,15 @@ There is also a BTCS ether cap of 50,000.000000000000000000 ETH, making the tota
 ## Transaction Data
 The raw data from running [script/getBancorCrowdsaleData.sh](script/getBancorCrowdsaleData.sh) can be found in [data/data.tsv](data/data.tsv) and the Excel form in [data/data.xls](data/data.xls). Note that this data has slight inconsistencies and does not include the `contributeBtcs()` generated tokens.
 
-Row 12,889 in the worksheet shows that the `enableRealCap(...)` function was called to set the cap to 250,000 ETH. 469 additional transactions contributing 9,575.991939 ETH continued contributing successfullyy to the crowdsale.
-
-Also note that tokens of the same amount as returned to the contributing account were also generated for the account [0x5894110995b8c8401bd38262ba0c8ee41d4e4658](https://etherscan.io/token/Bancor?a=0x5894110995b8c8401bd38262ba0c8ee41d4e4658) and total 39,661,989.1803711283883108 Bancor - [50.0000%].
+Also note that tokens of the same amount as returned to the contributing account were also generated for the "beneficiary" account [0x5894110995b8c8401bd38262ba0c8ee41d4e4658](https://etherscan.io/token/Bancor?a=0x5894110995b8c8401bd38262ba0c8ee41d4e4658) and total 39,661,989.1803711283883108 Bancor - [50.0000%].
 
 ## Contribution Event Data
 
 The raw data from running [script/getBancorCrowdsaleEventData.sh](script/getBancorCrowdsaleEventData.sh) can be found in [data/events.tsv](data/events.tsv) and the Excel form in [data/events.xls](data/events.xls). Note that this data does not tally with the reported totals from Bancor's website.
 
-Row 12,906 shows the first contribution after the `enableRealCap(...)` was called to set the cap to 250,000 ETH. At the time the cap was reduced to 250,000 ETH, there was an excess of 117,044.40 ETH (in the following transaction). 469 transactions totaling 9,575.99 ETH should have been rejected by the new cap.
-
 ## Contribution Event Data v2 Including Contract Internal Data
 
 The raw data from running [script/getBancorCrowdsaleEventDataV2.sh](script/getBancorCrowdsaleEventDataV2.sh) can be found in [data/eventsV2.tsv](data/eventsV2.tsv) and the Excel form in [data/eventsV2.xls](data/eventsV2.xls). Note that this data still does not tally with the reported totals from Bancor's website.
-
-Row 12,906 shows the first contribution after the `enableRealCap(...)` was called to set the cap to 250,000 ETH. At the time the cap was reduced to 250,000 ETH, there was an excess of 117,044.40 ETH (in the following transaction). 469 transactions totaling 9,575.99 ETH should have been rejected by the new cap.
 
 <br />
 

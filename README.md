@@ -51,16 +51,23 @@ Last block with public crowdsale contribution #[3861767](https://etherscan.io/bl
 * #[3851463](https://etherscan.io/block/3851463) Jun-10-2017 05:32:18 PM +UTC `transferOwnership(...)` [0x62b034af](https://etherscan.io/tx/0x62b034afafab596bf4331a0a6c4eaea2dbf02313bfb35e3edb4051049254f66b)
 * #[3860991](https://etherscan.io/block/3860991) Jun-12-2017 12:59:04 PM +UTC `contributeBTCs()` [0x5a9c1306](https://etherscan.io/tx/0x5a9c1306ce7346e7540dae4dbf98a74ad5f7e1a65913112e4a35bc68a277a8f0)
 * #[3861203](https://etherscan.io/block/3861203) Jun-12-2017 02:00:17 PM +UTC First transaction
-* #[3861740](https://etherscan.io/block/3861740) Jun-12-2017 04:17:50 PM +UTC `submitTransaction(enableRealCap(...))` [0x52dffab9](https://etherscan.io/tx/0x52dffab952f9b69a2c7fdab6b9e52ace98ec44559d8239688a5e88578b5c5e15) set *totalEtherCap* to 250,000.000000000000000000 ETH - [source](https://www.reddit.com/r/ethereum/comments/6gyu6w/transaction_triggering_cap_of_bancor_sale_had_a/)
+* #[3861740](https://etherscan.io/block/3861740) TxIndx 1 Jun-12-2017 04:17:50 PM +UTC `submitTransaction(enableRealCap(...))` [0x52dffab9](https://etherscan.io/tx/0x52dffab952f9b69a2c7fdab6b9e52ace98ec44559d8239688a5e88578b5c5e15) set *totalEtherCap* to 250,000.000000000000000000 ETH - [source](https://www.reddit.com/r/ethereum/comments/6gyu6w/transaction_triggering_cap_of_bancor_sale_had_a/)
 * #[3861767](https://etherscan.io/block/3861767) Jun-12-2017 04:25:20 PM +UTC Last transaction
 
 There is also a BTCS ether cap of 50,000.000000000000000000 ETH, making the total cap 300,000 ETH.
 
+## Transaction Data
 The raw data from running [script/getBancorCrowdsaleData.sh](script/getBancorCrowdsaleData.sh) can be found in [data/data.tsv](data/data.tsv) and the Excel form in [data/data.xls](data/data.xls). Note that this data has slight inconsistencies and does not include the `contributeBtcs()` generated tokens.
 
 Row 12,889 in the worksheet shows that the `enableRealCap(...)` function was called to set the cap to 250,000 ETH. 469 additional transactions contributing 9,575.991939 ETH continued contributing successfullyy to the crowdsale.
 
 Also note that tokens of the same amount as returned to the contributing account were also generated for the account [0x5894110995b8c8401bd38262ba0c8ee41d4e4658](https://etherscan.io/token/Bancor?a=0x5894110995b8c8401bd38262ba0c8ee41d4e4658) and total 39,661,989.1803711283883108 Bancor - [50.0000%].
+
+## Contribution Event Data
+
+The raw data from running [script/getBancorCrowdsaleEventData.sh](script/getBancorCrowdsaleEventData.sh) can be found in [data/events.tsv](data/events.tsv) and the Excel form in [data/events.xls](data/events.xls). Note that this data does not tally with the reported totals from Bancor's website.
+
+Row 12,906 shows the first contribution after the `enableRealCap(...)` was called to set the cap to 250,000 ETH. At the time the cap was reduced to 250,000 ETH, there was an excess of 117,044.40 ETH (in the following transaction). 469 transactions totaling 9,575.99 ETH should have been rejected by the new cap.
 
 <br />
 

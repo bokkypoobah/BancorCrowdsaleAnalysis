@@ -19,6 +19,9 @@ The hidden cap was only revealed (and set, halting further contributions) 2 hour
 
 Regarding the "massive attacks on our network", inspection of some randomly chosen blocks at the start [3861206](https://etherscan.io/txs?block=3861206), middle [3861509](https://etherscan.io/txs?block=3861509) and end [3861761](https://etherscan.io/txs?block=3861761) of the crowdsale shows that the transactions are mostly BancorCrowdsale's transactions with other regular transactions in between.
 
+The following chart, created from the raw data in [data/blockData.xls](data/blockData.xls), shows the % of transaction mined that relate to the Bancor crowdsale, and the % of the block limit that is used. The Excel form is in [data/blockData.xls](data/blockData.xls):
+![](images/BancorCrowdsaleTxsPercAndBlockLimitPerc-20170614-233747.png)
+
 Bancor used a multisig wallet to execute the `enableRealCap(...)` transaction, requiring 2 separate transactions [0x52dffab9](https://etherscan.io/tx/0x52dffab952f9b69a2c7fdab6b9e52ace98ec44559d8239688a5e88578b5c5e15) and [0x40d2abb4](https://etherscan.io/tx/0x40d2abb4e411ffd8e0ccb422f4fcacae3dc0967125fe5f6e6a45d48cc87e44e6) to set the 250 KETH cap. The first part was mined 2 hours and 17 minutes into the crowdsale, and the second part was mined 2 hours and 25 minutes into the crowdsale.
 
 Bancor had set a maximum gas price of 50 gwei (50000000000 wei) that crowdsale contributors could send their transaction with. Bancor executed both multisig transactions with a 100 gwei gas price, and these should have been executed in priority to the valid crowdsale contribution transactions.
@@ -101,6 +104,11 @@ The raw data from running [script/getBancorCrowdsaleEventData.sh](script/getBanc
 ## Contribution Event Data v2 Including Contract Internal Data
 
 The raw data from running [script/getBancorCrowdsaleEventDataV2.sh](script/getBancorCrowdsaleEventDataV2.sh) can be found in [data/eventsV2.tsv](data/eventsV2.tsv) and the Excel form in [data/eventsV2.xls](data/eventsV2.xls). Note that this data still does not tally with the reported totals from Bancor's website.
+
+## Bancor Transactions And Block Limit Percentages
+
+The script [scripts/getBancorCrowdsaleBlockData.sh](scripts/getBancorCrowdsaleBlockData.sh) was used to generate the the raw data in [data/blockData.xls](data/blockData.xls) and shows the % of transaction mined that relate to the Bancor crowdsale, and the % of the block limit that is used. The Excel form is in [data/blockData.xls](data/blockData.xls).
+
 
 <br />
 

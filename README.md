@@ -1,6 +1,6 @@
 # Bancor Crowdsale Analysis
 
-[Bancor](https://bancor.network) had a [Crowdsale](https://bancor.network/fundraiser) where the public contributions started at Jun-12-2017 02:00:17 PM +UTC and ended at Jun-12-2017 04:25:20 PM +UTC. The amount raised was 396,619.8918 ETH (USD 157,176,893 at the current ETH/USD price of 396.2910).
+[Bancor](https://bancor.network) had a [crowdsale](https://bancor.network/fundraiser) where the public contributions started at Jun-12-2017 02:00:17 PM +UTC and ended at Jun-12-2017 04:25:20 PM +UTC. The amount raised was 396,619.8918 ETH (USD 157,176,893 at the current ETH/USD price of 396.2910).
 
 Statistics from their crowdsale page - 39.6M BNT Fundraiser token allocation; 79.3M Total BNT Supply; and 396,720M ETH Raised.
 
@@ -15,11 +15,11 @@ Bancor made the following announcements on Twitter:
 * 9:15 AM - 12 Jun 2017 [Massive attacks are on our network, website and application. Not on Ethereum](https://twitter.com/BancorNetwork/status/874299034667814912)
 * 9:26 AM - 12 Jun 2017 [Clarification: The transaction triggering hidden cap is currently stuck together w/ other transaction due to massive attacks on our network](https://twitter.com/BancorNetwork/status/874301834109833217)
 
-The hidden cap was only revealed (and set, halting further contributions) 2 hours and 25 minutes into the crowdsale, after the amount raised of 396 KETH exceeded then un-revealed cap of 250 KETH.
+The hidden cap was only revealed (and set, halting further contributions) 2 hours and 25 minutes into the crowdsale, after the amount raised of 396 KETH exceeded the then un-revealed cap of 250 KETH.
 
-Regarding the "massive attacks on our network", inspection of some randomly picked blocks at the start [3861206](https://etherscan.io/txs?block=3861206), middle [3861509](https://etherscan.io/txs?block=3861509) and end [3861761](https://etherscan.io/txs?block=3861761) of the crowdsale shows that the transactions are mostly BancorCrowdsale's transactions with other regular transactions in between.
+Regarding the "massive attacks on our network", inspection of some randomly chosen blocks at the start [3861206](https://etherscan.io/txs?block=3861206), middle [3861509](https://etherscan.io/txs?block=3861509) and end [3861761](https://etherscan.io/txs?block=3861761) of the crowdsale shows that the transactions are mostly BancorCrowdsale's transactions with other regular transactions in between.
 
-Bancor used a multisig wallet to execute the `enableRealCap(...)` transaction, requiring 2 separate transactions [0x52dffab9](https://etherscan.io/tx/0x52dffab952f9b69a2c7fdab6b9e52ace98ec44559d8239688a5e88578b5c5e15) and [0x52dffab9](https://etherscan.io/tx/0x52dffab952f9b69a2c7fdab6b9e52ace98ec44559d8239688a5e88578b5c5e15) to set the 250 KETH cap. The first part was mined 2 hours and 17 minutes into the crowdsale, and the second part was mined 2 hours and 25 minutes into the crowdsale.
+Bancor used a multisig wallet to execute the `enableRealCap(...)` transaction, requiring 2 separate transactions [0x52dffab9](https://etherscan.io/tx/0x52dffab952f9b69a2c7fdab6b9e52ace98ec44559d8239688a5e88578b5c5e15) and [0x40d2abb4](https://etherscan.io/tx/0x40d2abb4e411ffd8e0ccb422f4fcacae3dc0967125fe5f6e6a45d48cc87e44e6) to set the 250 KETH cap. The first part was mined 2 hours and 17 minutes into the crowdsale, and the second part was mined 2 hours and 25 minutes into the crowdsale.
 
 Bancor had set a maximum gas price of 50 gwei (50000000000 wei) that crowdsale contributors could send their transaction with. Bancor executed both multisig transactions with a 100 gwei gas price, and these should have been executed in priority to the valid crowdsale contribution transactions.
 
